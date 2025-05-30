@@ -1,0 +1,293 @@
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4895ef;
+  --dark-color: #1b263b;
+  --light-color: #f8f9fa;
+  --success-color: #4cc9f0;
+  --text-color: #2b2d42;
+  --text-light: #8d99ae;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f5f7fa;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.app-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-header::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.app-header::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.app-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+/* Loading Styles */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+}
+
+.loading-container h6 {
+  margin-top: 1.5rem;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+/* Error Styles */
+.error-alert {
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+/* Events Grid */
+.events-container {
+  padding: 2rem 1rem;
+  flex: 1;
+}
+
+.event-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  border-radius: 12px !important;
+  overflow: hidden;
+  border: none !important;
+  box-shadow: var(--shadow);
+  background: white;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.event-card .MuiCardMedia-root {
+  transition: var(--transition);
+}
+
+.event-card:hover .MuiCardMedia-root {
+  transform: scale(1.03);
+}
+
+.event-detail {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  color: var(--text-light);
+}
+
+.event-detail svg {
+  margin-right: 8px;
+  color: var(--accent-color);
+}
+
+.ticket-button {
+  margin-top: 1.5rem !important;
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color)) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  padding: 10px 0 !important;
+  border-radius: 8px !important;
+  transition: var(--transition) !important;
+}
+
+.ticket-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(67, 97, 238, 0.3);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.email-modal {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.email-modal h5 {
+  color: var(--dark-color);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 12px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+}
+
+/* Footer Styles */
+.app-footer {
+  margin-top: 4rem;
+  padding: 1.5rem 0;
+  background-color: var(--dark-color);
+  color: white;
+  text-align: center;
+}
+
+.app-footer p {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 2rem;
+  }
+  
+  .app-header p {
+    font-size: 1rem;
+  }
+  
+  .events-container {
+    padding: 1rem;
+  }
+  
+  .email-modal {
+    padding: 1.5rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.MuiGrid-item {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.MuiGrid-item:nth-child(1) { animation-delay: 0.1s; }
+.MuiGrid-item:nth-child(2) { animation-delay: 0.2s; }
+.MuiGrid-item:nth-child(3) { animation-delay: 0.3s; }
+.MuiGrid-item:nth-child(4) { animation-delay: 0.4s; }
+.MuiGrid-item:nth-child(5) { animation-delay: 0.5s; }
+.MuiGrid-item:nth-child(6) { animation-delay: 0.6s; }
